@@ -1,10 +1,9 @@
 # AfterPush Android SDK v1.0
-============================
 
 
 ##Instructions : 
 
-1) Implementation via JAR file
+**1) Implementation via JAR file**
   - Download AfterPushSDK_v1.0
   - Include in your project libs folder
   - Add AfterPushSDK_v1.0 as external JAR file
