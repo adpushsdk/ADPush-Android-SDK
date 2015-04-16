@@ -1,9 +1,41 @@
-# AfterPush Android SDK v1.0
+# AfterPush Android SDK
+
+*By [AfterPush](http://www.afterpush.com/)*
+
+Current SDK Version : *v1.0*
 
 
-##Instructions : 
+## Introduction
+- Want to push notifications to your app users?
+- Do not have a server for GCM?
+- Headache on how to implement GCM Client SDK on your app?
+- **AfterPush is the one for you.**
 
-**1) Implementation via JAR file**
+###Features
+- Fast and lightweight library for push notifications.
+- Easy implementation in Eclipse and Android Studio IDE.
+- Live support and rapid updates!
+- Push-on-the-go with our AfterPush apps.
+- First ever, try pushing notification without having to implement our SDK.
+
+
+###Change Logs
+**Version 1.0**
+
+- AfterPush launch
+- Remote Push Notifications 
+
+
+
+
+
+
+###Installation
+**1) Obtain GCM API Key**
+  - Follow <a href="http://developer.android.com/google/gcm/gs.html#gcm-service">this guide</a> to create a Google API project, enable the GCM service, and get your sender ID and an API key if you have not done this already.
+  
+
+**2) Implementing the SDK**
   - Download AfterPushSDK_v1.0
   - Include in your project libs folder
   - Add AfterPushSDK_v1.0 as external JAR file
