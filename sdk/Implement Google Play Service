@@ -1,0 +1,26 @@
+Include Google Play Service lib in your project.
+================================================
+Eclipse
+-------
+
+1)	In Eclipse, launch SDK manager, and install Extras/Google Play services.
+2)	Navigate to Android SDK folder (..sdk/extras/google/libproject), and you will find a folder "google-play-services_lib".
+3)	Copy the whole folder to your workspace, and import it into Eclipse as an "Existing Android Code Into Workspace".
+4)	It will then appear at your Package Explorer.
+5)	Right click your target project > Properties > Android > Add.. > Choose google-play-services_lib.
+6)	Google Play Service lib is now included in your project.
+
+
+Android Studio (gradle)
+-----------------------
+
+1)	In your project src folder, there is a "build.gradle" file.
+2)	Edit the file, and add in the line below :-
+		
+		dependencies {
+			 compile 'com.google.android.gms:play-services:6.5.87'
+		}
+
+		** Google play service might update from time to time, so be sure to update accordingly.
+3)	Sync your gradle file.
+4)	Google Play Service lib is now included in your project.
