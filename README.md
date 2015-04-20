@@ -49,11 +49,11 @@ Current SDK Version : *v1.0*
     
     **AfterPushAppKey is generated in AfterPush panel when you create an app.**
     
-     ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text      1")
+     ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20App%20Key.png "Example AfterPushAppKey")
      
     **AfterPushGoogleSenderID is a 12-length number from the project name in your Google API Console.**
     
-    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text      1")
+    ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Logo Title Text      1")
     
   - In your project MainActivity class, override onStart() method
   - Instantiate AfterPush with your activity context as a parameter : 
