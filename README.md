@@ -13,6 +13,7 @@ Current SDK Version : *v1.0*
 
 ###Features
 - Fast and lightweight library for push notifications.
+- App version control with Google PlayStore.
 - Easy implementation in Eclipse and Android Studio IDE.
 - Live support and rapid updates!
 - Push-on-the-go with our AfterPush apps.
@@ -22,9 +23,9 @@ Current SDK Version : *v1.0*
 ###Change Logs
 **Version 1.0**
 
-- AfterPush launch
+- AfterPush first version launch
 - Remote Push Notifications 
-
+- App version control that syncs with Google Play Store.
 
 
 
@@ -34,12 +35,16 @@ Current SDK Version : *v1.0*
 **1) Obtain GCM API Key**
   - Follow <a href="http://developer.android.com/google/gcm/gs.html#gcm-service">this guide</a> to create a Google API project, enable the GCM service, and get your sender ID and an API key if you have not done this already.
   
-
-**2) Implementing the SDK**
+**2) Register an account at AfterPush**
+  - Proceed to <a href="http://panel.afterpush.com">AfterPush Panel</a> to create an account. It's quick and easy!
+  
+**3) Implementing the SDK**
   - Download AfterPushSDK_v1.0
   - Include in your project libs folder
   - Add AfterPushSDK_v1.0 as external JAR file
-  - Include **Google Play Services library in build path as well**
+  - Include **Google Play Services library** in build path as well
+  
+**4) Modify strings.xml**
   - Navigate to res/value/strings.xml of your project and include : 
   
     ```xml
@@ -47,20 +52,27 @@ Current SDK Version : *v1.0*
     <string name="AfterPushGoogleSenderID">123456789012</string>
     ```
     
-    **AfterPushAppKey is generated in AfterPush panel when you create an app.**
+    ***Tips : AfterPushAppKey is generated in AfterPush panel when you create an app.***
     
      ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20App%20Key.png "Example AfterPushAppKey")
      
-    **AfterPushGoogleSenderID is a 12-length number from the project name in your Google API Console.**
+    ***Tips : AfterPushGoogleSenderID is a 12-length number from the project name in your Google API Console.***
     
-    ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Logo Title Text      1")
+    ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Example AfterPushGoogleSenderID")
     
+**5) Instantiate AfterPush**
   - In your project MainActivity class, override onStart() method
   - Instantiate AfterPush with your activity context as a parameter : 
   
     ```java
-    AfterPush afterPush = new AfterPush(YourMainActivity.this);
+    @Override
+	  protected void onStart() {
+	    super.onStart();
+  		AfterPush ap = new AfterPush(YourMainActivity.this);
+	  }
     ```
+    
+**6) Modify AndroidManifest.xml**
   - In your AndroidManifest.xml, copy the following codes [There are 2 parts]:  
   
   **Part 1**
