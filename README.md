@@ -40,11 +40,26 @@ Current SDK Version : *v1.0*
   - Include in your project libs folder
   - Add AfterPushSDK_v1.0 as external JAR file
   - Include **Google Play Services library in build path as well**
+  - Navigate to res/value/strings.xml of your project and include : 
+  
+    ```xml
+    <string name="AfterPushAppKey">41115151a121e10161915171714141f141d1a1d1</string>
+    <string name="AfterPushGoogleSenderID">123456789012</string>
+    ```
+    
+    **AfterPushAppKey is generated in AfterPush panel when you create an app.**
+    
+     ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text      1")
+     
+    **AfterPushGoogleSenderID is a 12-length number from the project name in your Google API Console.**
+    
+    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text      1")
+    
   - In your project MainActivity class, override onStart() method
   - Instantiate AfterPush with your activity context as a parameter : 
   
     ```java
-    AfterPush afterPush = new AfterPush(MainActivity.this);
+    AfterPush afterPush = new AfterPush(YourMainActivity.this);
     ```
   - In your AndroidManifest.xml, copy the following codes [There are 2 parts]:  
   
@@ -83,13 +98,22 @@ Current SDK Version : *v1.0*
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="com.example.testnoti" />
+                <category android:name="your.app.packagename" />
             </intent-filter>
         </receiver>
 
         <service android:name="mvillage.afterpush.process.MyGCMIntentService" />
         <service android:name="mvillage.afterpush.process.GCMRegister" />
+        <service android:name="mvillage.app.openudid.OpenUDID_service" >
+          <intent-filter>
+              <action android:name="mvillage.app.openudid.GETUDID" />
+          </intent-filter>
+        </service>
     <!-- END AFTERPUSH ACTIVITY & SERVICES DECLARATION -->
     ```
     
-  - That's it, you are ready to push notifications to your app users now! 
+  
+  
+  
+  
+  ##That's it, you are ready to push notifications to your app users now! 
