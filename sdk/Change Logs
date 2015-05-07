@@ -5,6 +5,15 @@ v1.0
 - Remote notification
 - App version control
 
+v1.1
+=====
+- Fixed location listener
+- PROBLEM : Always instantiate AfterPush on MainActivity that doesn't die. Else, version control might not run properly.
+
+v1.2
+=====
+- Fixed where GCM ID is null and it is causing app to crash
+
 
 
 More to come soon...
