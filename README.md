@@ -1,6 +1,6 @@
-# AfterPush Android SDK
+# ADPush Android SDK
 
-*By [AfterPush](http://www.afterpush.com/)*
+*By [AfterPush](http://www.adpush.my/)*
 
 Current SDK Version : *v1.0*
 
@@ -9,11 +9,11 @@ Current SDK Version : *v1.0*
 - Want to push notifications to your app users?
 - Do not have a server for GCM?
 - Headache on how to implement GCM Client SDK on your app?
+- Locally monetize your app in Malaysia?
 - **AfterPush is the one for you.**
 
 ###Features
-- Fast and lightweight library for push notifications.
-- App version control with Google PlayStore.
+- Fast and lightweight library for push notifications and advertisement implementation.
 - Easy implementation in Eclipse and Android Studio IDE.
 - Live support and rapid updates!
 - Push-on-the-go with our AfterPush apps.
@@ -27,21 +27,24 @@ Current SDK Version : *v1.0*
 - Remote Push Notifications 
 - App version control that syncs with Google Play Store.
 
+**Version 2.0**
 
-
+- Bug fix for causing apps to crash.
+- Enhancement on SDK runtime so that it would not take up resources alot.
+- Implemented AdPush AdView and FullAdView.
 
 
 ###Installation
 **1) Obtain GCM API Key**
   - Follow <a href="http://developer.android.com/google/gcm/gs.html#gcm-service">this guide</a> to create a Google API project, enable the GCM service, and get your sender ID and an API key if you have not done this already.
   
-**2) Register an account at AfterPush**
-  - Proceed to <a href="http://panel.afterpush.com">AfterPush Panel</a> to create an account. It's quick and easy!
+**2) Register an account at ADPush**
+  - Proceed to <a href="http://dev.afterpush.com">AdPush Developer Panel</a> to create an account. It's quick and easy!
   
 **3) Implementing the SDK**
-  - Download AfterPushSDK_v1.0
+  - Download ADPushSDK_v2.0
   - Include in your project libs folder
-  - Add AfterPushSDK_v1.0 as external JAR file
+  - Add AdPushSDK_v2.0 as external JAR file
   - Include **Google Play Services library** in build path as well
   
 **4) Modify strings.xml**
@@ -60,15 +63,18 @@ Current SDK Version : *v1.0*
     
     ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Example AfterPushGoogleSenderID")
     
-**5) Instantiate AfterPush**
+**5) Instantiate AdPush**
   - In your project MainActivity class, override onStart() method
   - Instantiate AfterPush with your activity context as a parameter : 
   
     ```java
     @Override
-	  protected void onStart() {
-	    super.onStart();
-  		AfterPush ap = new AfterPush(YourMainActivity.this);
+	  protected void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.activity_main);
+  		
+  	    AfterPush ap = new AfterPush(YourMainActivity.this);
+  	    ap.initRegister();
 	  }
     ```
     
@@ -116,6 +122,7 @@ Current SDK Version : *v1.0*
 
         <service android:name="mvillage.afterpush.process.MyGCMIntentService" />
         <service android:name="mvillage.afterpush.process.GCMRegister" />
+        <service android:name="mvillage.afterpush.process.AfterPushAPIService"/>
         <service android:name="mvillage.app.openudid.OpenUDID_service" >
           <intent-filter>
               <action android:name="mvillage.app.openudid.GETUDID" />
