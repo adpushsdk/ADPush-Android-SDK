@@ -130,7 +130,72 @@ Current SDK Version : *v1.0*
         </service>
     <!-- END AFTERPUSH ACTIVITY & SERVICES DECLARATION -->
     ```
-    
+
+**[GUIDE] Implementing AdPush AdView in app**
+
+	**Part 1 [XML]**
+	```xml
+	 <mvillage.afterpush.advertisement.AfterPushAdView
+            android:id="@+id/adViewAfterPush"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </mvillage.afterpush.advertisement.AfterPushAdView>
+	```
+	
+	**Part 2 [JAVA]**
+	```java
+	
+	// Set banner ID first and init with context
+	AfterPushAdManager.setBannerAdUnitId("Ad Unit Id From AdPush Developer Panel");
+        AfterPushAdManager.initBannerAdvertisement(MainActivity.this);
+        
+        // Init adview and request ad
+        // ONLY CALL adView.showAd() AFTER BANNER LOADED FOR BETTER PERFORMANCE!
+	AfterPushAdView adView = (AfterPushAdView) findViewById(R.id.adViewAfterPush);
+	adView.requestAd();
+        adView.setBannerListener(new BannerInterface() {
+
+            @Override
+            public void onBannerLoaded(AfterPushAdView adView) {
+                adView.showAd();
+            }
+
+            @Override
+            public void onBannerFailed(String errorMsg) {
+
+            }
+
+        });
+	
+	```
+	
+**[GUIDE] Implementing AdPush AdView in app**
+
+	```java
+	
+	// Set banner ID first and init with context
+	AfterPushAdManager.setFullAdUnitId("Ad Unit ID From AdPush Developer Panel");
+        AfterPushAdManager.initFullAdvertisement(MainActivity.this);
+        
+        // Init adview and request ad
+        // ONLY CALL fullAd.showAd() AFTER fullAd LOADED FOR BETTER PERFORMANCE!
+	AfterPushFullAd afterPushFullAd = new AfterPushFullAd(MainActivity.this);
+        afterPushFullAd.loadAd();
+        afterPushFullAd.setFullAdListener(new FullAdListener() {
+
+            @Override
+            public void onFullAdLoaded(AfterPushFullAd fullAd) {
+                fullAd.showAd();
+            }
+
+            @Override
+            public void onFullAdFailed(String errorMsg) {
+
+            }
+        });
+	
+	```
+	
   
   
   
