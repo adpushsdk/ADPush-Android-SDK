@@ -168,7 +168,7 @@ Current SDK Version : *v1.0*
  });
  ```
 	
-**[GUIDE] Implementing AdPush AdView in app**
+**[GUIDE] Implementing AdPush FullAd in app**
 
  ```java
 	
@@ -193,9 +193,5 @@ Current SDK Version : *v1.0*
         }
  });
  ```
-	
-  
-  
-  
-  
-  ##That's it, you are ready to push notifications to your app users now! 
+
+##That's it, you are ready to push notifications to your app users now! 
