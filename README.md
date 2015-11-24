@@ -1,8 +1,8 @@
 # ADPush Android SDK
 
-*By [AfterPush](http://www.adpush.my/)*
+*By [AdPush](http://www.adpush.my/)*
 
-Current SDK Version : *v1.0*
+Current SDK Version : *v2.1*
 
 
 ## Introduction
@@ -33,39 +33,44 @@ Current SDK Version : *v1.0*
 - Enhancement on SDK runtime so that it would not take up resources alot.
 - Implemented AdPush AdView and FullAdView.
 
+**Version 2.1**
+
+- Rename methods
+- Update API Url
+
 
 ###Installation
 **1) Obtain GCM API Key**
   - Follow <a href="http://developer.android.com/google/gcm/gs.html#gcm-service">this guide</a> to create a Google API project, enable the GCM service, and get your sender ID and an API key if you have not done this already.
   
 **2) Register an account at ADPush**
-  - Proceed to <a href="http://dev.afterpush.com">AdPush Developer Panel</a> to create an account. It's quick and easy!
+  - Proceed to <a href="http://dev.adpush.my">AdPush Developer Panel</a> to create an account. It's quick and easy!
   
 **3) Implementing the SDK**
-  - Download ADPushSDK_v2.0
+  - Download ADPushSDK_v2.1
   - Include in your project libs folder
-  - Add AdPushSDK_v2.0 as external JAR file
+  - Add AdPushSDK_v2.1 as external JAR file
   - Include **Google Play Services library** in build path as well
   
 **4) Modify strings.xml**
   - Navigate to res/value/strings.xml of your project and include : 
   
     ```xml
-    <string name="AfterPushAppKey">41115151a121e10161915171714141f141d1a1d1</string>
-    <string name="AfterPushGoogleSenderID">123456789012</string>
+    <string name="AdPushAppKey">41115151a121e10161915171714141f141d1a1d1</string>
+    <string name="AdPushGoogleSenderID">123456789012</string>
     ```
     
-    ***Tips : AfterPushAppKey is generated in AfterPush panel when you create an app.***
+    ***Tips : AdPushAppKey is generated in AdPush Developer Panel when you create an app.***
     
-     ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20App%20Key.png "Example AfterPushAppKey")
+     ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20App%20Key.png "Example AdPushAppKey")
      
     ***Tips : AfterPushGoogleSenderID is a 12-length number from the project name in your Google API Console.***
     
-    ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Example AfterPushGoogleSenderID")
+    ![alt text](https://github.com/afterpush/AfterPush-Android-SDK/blob/master/images/Example%20Google%20ID.png "Example AdPushGoogleSenderID")
     
 **5) Instantiate AdPush**
   - In your project MainActivity class, override onStart() method
-  - Instantiate AfterPush with your activity context as a parameter : 
+  - Instantiate AdPush with your activity context as a parameter : 
   
     ```java
     @Override
@@ -73,7 +78,7 @@ Current SDK Version : *v1.0*
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.activity_main);
   		
-  	    AfterPush ap = new AfterPush(YourMainActivity.this);
+  	    AdPush ap = new AdPush(YourMainActivity.this);
   	    ap.initRegister();
 	  }
     ```
@@ -111,7 +116,7 @@ Current SDK Version : *v1.0*
           android:value="@integer/google_play_services_version" />
 
         <receiver
-            android:name="mvillage.afterpush.process.MyGCMBroadcastReceiver"
+            android:name="mvillage.adpush.process.MyGCMBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
@@ -120,9 +125,9 @@ Current SDK Version : *v1.0*
             </intent-filter>
         </receiver>
 
-        <service android:name="mvillage.afterpush.process.MyGCMIntentService" />
-        <service android:name="mvillage.afterpush.process.GCMRegister" />
-        <service android:name="mvillage.afterpush.process.AfterPushAPIService"/>
+        <service android:name="mvillage.adpush.process.MyGCMIntentService" />
+        <service android:name="mvillage.adpush.process.GCMRegister" />
+        <service android:name="mvillage.adpush.process.AfterPushAPIService"/>
         <service android:name="mvillage.app.openudid.OpenUDID_service" >
           <intent-filter>
               <action android:name="mvillage.app.openudid.GETUDID" />
@@ -135,28 +140,28 @@ Current SDK Version : *v1.0*
 
  **Part 1 [XML]**
  ```xml
- <mvillage.afterpush.advertisement.AfterPushAdView
-            android:id="@+id/adViewAfterPush"
+ <mvillage.adpush.advertisement.AdPushAdView
+            android:id="@+id/adViewAdPush"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
- </mvillage.afterpush.advertisement.AfterPushAdView>
+ </mvillage.adpush.advertisement.AfterPushAdView>
  ```
 	
  **Part 2 [JAVA]**
  ```java
  
  // Set banner ID first and init with context
- AfterPushAdManager.setBannerAdUnitId("Ad Unit Id From AdPush Developer Panel");
- AfterPushAdManager.initBannerAdvertisement(MainActivity.this);
+ AdPushAdManager.setBannerAdUnitId("Ad Unit Id From AdPush Developer Panel");
+ AdPushAdManager.initBannerAdvertisement(MainActivity.this);
         
  // Init adview and request ad
  // ONLY CALL adView.showAd() AFTER BANNER LOADED FOR BETTER PERFORMANCE!
- AfterPushAdView adView = (AfterPushAdView) findViewById(R.id.adViewAfterPush);
+ AdPushAdView adView = (AdPushAdView) findViewById(R.id.adViewAdPush);
  adView.requestAd();
  adView.setBannerListener(new BannerInterface() {
 
         @Override
-        public void onBannerLoaded(AfterPushAdView adView) {
+        public void onBannerLoaded(AdPushAdView adView) {
             adView.showAd();
         }
 
@@ -173,17 +178,17 @@ Current SDK Version : *v1.0*
  ```java
 	
  // Set banner ID first and init with context
- AfterPushAdManager.setFullAdUnitId("Ad Unit ID From AdPush Developer Panel");
- AfterPushAdManager.initFullAdvertisement(MainActivity.this);
+ AdPushAdManager.setFullAdUnitId("Ad Unit ID From AdPush Developer Panel");
+ AdPushAdManager.initFullAdvertisement(MainActivity.this);
         
  // Init adview and request ad
  // ONLY CALL fullAd.showAd() AFTER fullAd LOADED FOR BETTER PERFORMANCE!
- AfterPushFullAd afterPushFullAd = new AfterPushFullAd(MainActivity.this);
- afterPushFullAd.loadAd();
- afterPushFullAd.setFullAdListener(new FullAdListener() {
+ AdPushFullAd adPushFullAd = new AdPushFullAd(MainActivity.this);
+ adPushFullAd.loadAd();
+ adPushFullAd.setFullAdListener(new FullAdListener() {
 
  	@Override
-        public void onFullAdLoaded(AfterPushFullAd fullAd) {
+        public void onFullAdLoaded(AdPushFullAd fullAd) {
             fullAd.showAd();
         }
 
