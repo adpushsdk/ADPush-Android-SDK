@@ -10,7 +10,7 @@ Current SDK Version : *v2.1*
 - Do not have a server for GCM?
 - Headache on how to implement GCM Client SDK on your app?
 - Locally monetize your app in Malaysia?
-- **AfterPush is the one for you.**
+- **AdPush is the one for you.**
 
 ###Features
 - Fast and lightweight library for push notifications and advertisement implementation.
