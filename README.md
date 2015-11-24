@@ -23,7 +23,7 @@ Current SDK Version : *v2.1*
 ###Change Logs
 **Version 1.0**
 
-- AfterPush first version launch
+- AdPush first version launch
 - Remote Push Notifications 
 - App version control that syncs with Google Play Store.
 
@@ -36,7 +36,7 @@ Current SDK Version : *v2.1*
 **Version 2.1**
 
 - Rename methods
-- Update API Url
+- Update API URL
 
 
 ###Installation
@@ -135,6 +135,10 @@ Current SDK Version : *v2.1*
         </service>
     <!-- END AFTERPUSH ACTIVITY & SERVICES DECLARATION -->
     ```
+    
+ **7) Notification**
+ 
+ Include `ic_launcher_trans.png` and `ic_launcher.png` in `R.drawable` folder for Notification to work. This is due to the new Lollipop feature. 
 
 **[GUIDE] Implementing AdPush AdView in app**
 
